@@ -3,7 +3,7 @@ const hard = () => {
         const num = item,
             output = [],
             sNumber = num.toString();
-        for (let i = 0, len = sNumber.length; i < len; i += 1) {
+        for (let i = 0, len = sNumber.length; i < len; i++) {
             output.push(+sNumber.charAt(i));
         }
         const multiple = output.reduce((acc, rec) => acc * rec) ** 3;
