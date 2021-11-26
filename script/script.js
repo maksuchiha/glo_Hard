@@ -1,5 +1,5 @@
 const hard = () => {
-    let output = (item) => {
+    const output = (item) => {
         const num = item,
             output = [],
             sNumber = num.toString();
