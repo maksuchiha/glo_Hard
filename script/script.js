@@ -1,32 +1,15 @@
-let hard = () => {
-    let brute = (item) => {
-        let num = item,
+const hard = () => {
+    let output = (item) => {
+        const num = item,
             output = [],
             sNumber = num.toString();
-
         for (let i = 0, len = sNumber.length; i < len; i += 1) {
             output.push(+sNumber.charAt(i));
         }
-        return output;
+        const multiple = output.reduce((acc, rec) => acc * rec) ** 3;
+        return  String(multiple).slice(0,2);
     }
-
-    let multiple = (item) => {
-        item = brute(266219);
-        return item.reduce((acc, rec) => acc * rec);
-    }
-
-    let deg = (item) => {
-        item = multiple();
-        return item ** 3;
-    }
-
-    let result = (item) => {
-        item = deg();
-        let first = String(item).slice(0,2);
-        console.log(first)
-    }
-
-    result()
+    console.log(output(266219));
 }
 
 hard()
