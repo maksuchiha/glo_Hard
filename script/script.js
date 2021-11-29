@@ -23,7 +23,7 @@ const hard = () => {
         }   else if (lang === 'ru') {
             console.log('Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье');
         }   else {
-            alert('ошибка');
+            console.log('ошибка');
         }
 
         switch(lang) {
