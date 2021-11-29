@@ -14,7 +14,6 @@ const hard = () => {
 
     console.log(lesson02(266219));
 
-
     const lesson03 = () => {
         const lang = prompt('Введите либо "ru" либо "en"');
         const days = new Map([
