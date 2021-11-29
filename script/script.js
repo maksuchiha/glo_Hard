@@ -16,33 +16,32 @@ const hard = () => {
 
 
     const lesson03 = () => {
-        let lang = prompt('Введите либо "ru" либо "en"');
+        const lang = prompt('Введите либо "ru" либо "en"');
+        const days = new Map([
+            ['en', ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] ],
+            ['ru', ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'] ]
+        ]) ;
 
         if (lang === 'en') {
-            console.log('Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday');
+            console.log(days.get('en'));
         }   else if (lang === 'ru') {
-            console.log('Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье');
+            console.log(days.get('ru'));
         }   else {
             console.log('ошибка');
         }
 
         switch(lang) {
             case 'en':
-                console.log('Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday');
+                console.log(days.get('en'));
                 break;
 
             case 'ru':
-                console.log('Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье');
+                console.log(days.get('ru'));
                 break;
 
             default:
                 console.log('ошибка');
         }
-
-        let days = new Map([
-            ['en', ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] ],
-            ['ru', ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'] ]
-        ]) ;
 
         console.log(days.get('en'));
 
