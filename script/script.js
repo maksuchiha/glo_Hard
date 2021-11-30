@@ -57,7 +57,7 @@ const hard = () => {
 
     const lesson04 = (item) => {
         if (typeof item !== "string") {
-            console.log('передана не строка')
+            return 'передана не строка'
         } else {
             item = item.trim()
             return String(item).slice(0,30) + '...'
