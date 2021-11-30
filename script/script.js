@@ -54,6 +54,17 @@ const hard = () => {
     }
 
     lesson03()
+
+    const lesson04 = (item) => {
+        if (typeof item !== "string") {
+            console.log('передана не строка')
+        } else {
+            item = item.trim()
+            return String(item).slice(0,30) + '...'
+        }
+    }
+
+    console.log(lesson04(' 123321123321123321123321123321123321123321 '))
 }
 
 hard()
