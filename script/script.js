@@ -1,74 +1,42 @@
 'use strict'
 
-const hard = () => {
-    const lesson02 = (item) => {
-        const num = item,
-            output = [],
-            sNumber = num.toString();
-        for (let i = 0, len = sNumber.length; i < len; i++) {
-            output.push(+sNumber.charAt(i))
+const lesson05 = () => {
+    const part1 = (item) => {
+        const isNumber = (num) => {
+            return !isNaN(parseFloat(num)) && isFinite(num)
         }
-        const multiple = output.reduce((acc, rec) => acc * rec) ** 3
-        return  String(multiple).slice(0,2)
+
+        do {
+            item = prompt('Введите число')
+        } while (!isNumber(item))
+
+        item = +item.split(' ').join('');
+
+        return item
     }
 
-    console.log(lesson02(266219))
+    console.log(part1())
 
-    const lesson03 = () => {
-        const lang = prompt('Введите либо "ru" либо "en"');
-        const days = new Map([
-            ['en', ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] ],
-            ['ru', ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'] ]
-        ])
+    const part2 = () => {
+        let arr = [ '15', '24', '56', '42', '87', '31', '55' ]
+        arr.forEach((item) => {
+            if (item.startsWith('2') || item.startsWith('4')) {
+                console.log(item);
+            }
+        })
 
-        if (lang === 'en') {
-            console.log(days.get('en'))
-        }   else if (lang === 'ru') {
-            console.log(days.get('ru'))
-        }   else {
-            console.log('ошибка')
+        const isPrime = (num) => {
+            for (let i = 2; num > i; i++) {
+                if (num % i === 0) {
+                    return false;
+                }
+            }
+            return num > 1;
         }
-
-        switch(lang) {
-            case 'en':
-                console.log(days.get('en'))
-                break;
-
-            case 'ru':
-                console.log(days.get('ru'))
-                break;
-
-            default:
-                console.log('ошибка')
-        }
-
-        console.log(days.get('en'))
-
-        let namePerson = prompt('Введите имя')
-
-        namePerson === 'Артём' ?
-            console.log('директор') :
-            namePerson === 'Александр' ?
-                console.log('преподаватель') :
-                console.log('студент')
+        console.log(arr.filter(isPrime));
     }
 
-    lesson03()
-
-    const lesson04 = (item) => {
-        if (typeof item !== "string") {
-            return 'передана не строка'
-        } else if (item.length > 30) {
-            item = item.trim()
-            return String(item).slice(0,30) + '...'
-        } else {
-            item = item.trim()
-            return item
-        }
-    }
-
-
-    console.log(lesson04(' 123321123321112332112332111233211233211 '))
+    part2()
 }
 
-hard()
+lesson05()
