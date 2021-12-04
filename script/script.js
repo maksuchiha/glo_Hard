@@ -1,74 +1,54 @@
-'use strict'
+"use strict"
 
-const hard = () => {
-    const lesson02 = (item) => {
-        const num = item,
-            output = [],
-            sNumber = num.toString();
-        for (let i = 0, len = sNumber.length; i < len; i++) {
-            output.push(+sNumber.charAt(i))
-        }
-        const multiple = output.reduce((acc, rec) => acc * rec) ** 3
-        return  String(multiple).slice(0,2)
-    }
-
-    console.log(lesson02(266219))
-
-    const lesson03 = () => {
-        const lang = prompt('Введите либо "ru" либо "en"');
-        const days = new Map([
-            ['en', ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] ],
-            ['ru', ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'] ]
-        ])
-
-        if (lang === 'en') {
-            console.log(days.get('en'))
-        }   else if (lang === 'ru') {
-            console.log(days.get('ru'))
-        }   else {
-            console.log('ошибка')
-        }
-
-        switch(lang) {
-            case 'en':
-                console.log(days.get('en'))
-                break;
-
-            case 'ru':
-                console.log(days.get('ru'))
-                break;
-
-            default:
-                console.log('ошибка')
-        }
-
-        console.log(days.get('en'))
-
-        let namePerson = prompt('Введите имя')
-
-        namePerson === 'Артём' ?
-            console.log('директор') :
-            namePerson === 'Александр' ?
-                console.log('преподаватель') :
-                console.log('студент')
-    }
-
-    lesson03()
-
-    const lesson04 = (item) => {
-        if (typeof item !== "string") {
-            return 'передана не строка'
-        } else if (item.length > 30) {
-            item = item.trim()
-            return String(item).slice(0,30) + '...'
-        } else {
-            item = item.trim()
-            return item
-        }
-    }
+const days = [ 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье' ]
+const body = document.querySelector('.div')
+const cartElem = document.createElement('div')
+let mon
+let tue
+let wed
+let thu
+let fri
+let sat
+let sun
+const now = new Date()
+const week = days.join('<br>')
 
 
-    console.log(lesson04(' 123321123321112332112332111233211233211 '))
+cartElem.classList.add('week')
+
+cartElem.innerHTML = `
+                <span class="mon">${week.slice(0, 11)}</span><br>
+                <span class="tue">${week.slice(15, 25)}</span><br>
+                <span class="wed">${week.slice(26, 31)}</span><br>
+                <span class="thu">${week.slice(35, 42)}</span><br>
+                <span class="fri">${week.slice(46, 53)}</span><br>
+                <i class="sat">${week.slice(57, 64)}</i><br>
+                <i class="sun">${week.slice(68, 79)}</i>
+            `
+body.append(cartElem)
+
+mon = cartElem.querySelector('.mon')
+tue = cartElem.querySelector('.tue')
+wed = cartElem.querySelector('.wed')
+thu = cartElem.querySelector('.thu')
+fri = cartElem.querySelector('.fri')
+sat = cartElem.querySelector('.sat')
+sun = cartElem.querySelector('.sun')
+
+if (now.getDay() === 1) {
+    mon.style.fontWeight = 'bold'
+} else if (now.getDay() === 2) {
+    tue.style.fontWeight = 'bold'
+} else if (now.getDay() === 3) {
+    wed.style.fontWeight = 'bold'
+} else if (now.getDay() === 4) {
+    thu.style.fontWeight = 'bold'
+} else if (now.getDay() === 5) {
+    fri.style.fontWeight = 'bold'
+} else if (now.getDay() === 6) {
+    sat.style.fontWeight = 'bold'
+} else if (now.getDay() === 7) {
+    sun.style.fontWeight = 'bold'
 }
 
-hard()
+
