@@ -1,74 +1,49 @@
 'use strict'
 
-const hard = () => {
-    const lesson02 = (item) => {
-        const num = item,
-            output = [],
-            sNumber = num.toString();
-        for (let i = 0, len = sNumber.length; i < len; i++) {
-            output.push(+sNumber.charAt(i))
-        }
-        const multiple = output.reduce((acc, rec) => acc * rec) ** 3
-        return  String(multiple).slice(0,2)
-    }
-
-    console.log(lesson02(266219))
-
-    const lesson03 = () => {
-        const lang = prompt('Введите либо "ru" либо "en"');
-        const days = new Map([
-            ['en', ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] ],
-            ['ru', ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'] ]
-        ])
-
-        if (lang === 'en') {
-            console.log(days.get('en'))
-        }   else if (lang === 'ru') {
-            console.log(days.get('ru'))
-        }   else {
-            console.log('ошибка')
-        }
-
-        switch(lang) {
-            case 'en':
-                console.log(days.get('en'))
-                break;
-
-            case 'ru':
-                console.log(days.get('ru'))
-                break;
-
-            default:
-                console.log('ошибка')
-        }
-
-        console.log(days.get('en'))
-
-        let namePerson = prompt('Введите имя')
-
-        namePerson === 'Артём' ?
-            console.log('директор') :
-            namePerson === 'Александр' ?
-                console.log('преподаватель') :
-                console.log('студент')
-    }
-
-    lesson03()
-
-    const lesson04 = (item) => {
-        if (typeof item !== "string") {
-            return 'передана не строка'
-        } else if (item.length > 30) {
-            item = item.trim()
-            return String(item).slice(0,30) + '...'
-        } else {
-            item = item.trim()
-            return item
+let liveTime = setInterval(() => {
+    const month = () => {
+        const month = ['Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря']
+        for (let i = 0; i < month.length; i++) {
+            if (i === new Date().getMonth()){
+                return month[i]
+            }
         }
     }
 
+    const day = () => {
+        const week = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье']
+        for (let i = 0; i < week.length; i++) {
+            if (i + 1 === new Date().getDay()) {
+                return week[i]
+            }
+        }
+    }
 
-    console.log(lesson04(' 123321123321112332112332111233211233211 '))
-}
+    const time = (min, forms) => {
+        min = Math.abs(min) % 100
+        const min1 = min % 10
+        if (min > 10 && min < 20) { return forms[2] }
+        if (min1 > 1 && min1 < 5) { return forms[1] }
+        if (min1 === 1) { return forms[0] }
+        return forms[2]
+    }
 
-hard()
+    const clean = () => {
+        document.body.innerHTML = ''
+    }
+
+    document.body.appendChild(document.createElement('div')).innerHTML =
+        `Сегодня ${day()}, ${new Date().getDate()} ${month()} ${new Date().getFullYear()} года, 
+     ${new Date().getHours()} ${time(new Date().getHours(), ['час', 'часа', 'часов'])} 
+     ${new Date().getMinutes()} ${time(new Date().getMinutes(), ['минута', 'минуты', 'минут'])} 
+     ${new Date().getSeconds()} ${time(new Date().getSeconds(), ['секунда', 'секунды', 'секунд'])}
+    `
+
+    document.body.appendChild(document.createElement('div')).innerHTML =
+        `${new Date().toLocaleDateString()} - ${new Date().toLocaleTimeString()}`
+
+
+    setTimeout(clean, 995)
+
+}, 1000)
+
