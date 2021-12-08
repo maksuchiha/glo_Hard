@@ -10,14 +10,12 @@ let liveTime = setInterval(() => {
         }
     }
 
-    const day = () => {
-        const week = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье']
-        for (let i = 0; i < week.length; i++) {
-            if (i + 1 === new Date().getDay()) {
-                return week[i]
-            }
-        }
+    const getTitle = (item) => {
+        item = item.trim()
+        return  item.charAt(0).toUpperCase() + item.slice(1).toLowerCase()
     }
+
+    const day = new Date(Date.now()).toLocaleString("ru-RU", {weekday: "long"})
 
     const time = (min, forms) => {
         min = Math.abs(min) % 100
@@ -33,7 +31,7 @@ let liveTime = setInterval(() => {
     }
 
     document.body.appendChild(document.createElement('div')).innerHTML =
-        `Сегодня ${day()}, ${new Date().getDate()} ${month()} ${new Date().getFullYear()} года, 
+        `Сегодня ${getTitle(day)}, ${new Date().getDate()} ${month()} ${new Date().getFullYear()} года, 
      ${new Date().getHours()} ${time(new Date().getHours(), ['час', 'часа', 'часов'])} 
      ${new Date().getMinutes()} ${time(new Date().getMinutes(), ['минута', 'минуты', 'минут'])} 
      ${new Date().getSeconds()} ${time(new Date().getSeconds(), ['секунда', 'секунды', 'секунд'])}
