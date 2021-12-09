@@ -1,14 +1,8 @@
 'use strict'
 
 let liveTime = setInterval(() => {
-    const month = () => {
-        const month = ['Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря']
-        for (let i = 0; i < month.length; i++) {
-            if (i === new Date().getMonth()){
-                return month[i]
-            }
-        }
-    }
+
+    const month = new Date(Date.now()).toLocaleString("ru-RU", {month: "long"}).slice(0, -1) + 'я'
 
     const getTitle = (item) => {
         item = item.trim()
@@ -31,7 +25,7 @@ let liveTime = setInterval(() => {
     }
 
     document.body.appendChild(document.createElement('div')).innerHTML =
-        `Сегодня ${getTitle(day)}, ${new Date().getDate()} ${month()} ${new Date().getFullYear()} года, 
+        `Сегодня ${getTitle(day)}, ${new Date().getDate()} ${month} ${new Date().getFullYear()} года, 
      ${new Date().getHours()} ${time(new Date().getHours(), ['час', 'часа', 'часов'])} 
      ${new Date().getMinutes()} ${time(new Date().getMinutes(), ['минута', 'минуты', 'минут'])} 
      ${new Date().getSeconds()} ${time(new Date().getSeconds(), ['секунда', 'секунды', 'секунд'])}
