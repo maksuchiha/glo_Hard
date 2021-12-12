@@ -38,4 +38,3 @@ let liveTime = setInterval(() => {
     setTimeout(clean, 995)
 
 }, 1000)
-
