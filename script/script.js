@@ -1,74 +1,32 @@
 'use strict'
 
-const hard = () => {
-    const lesson02 = (item) => {
-        const num = item,
-            output = [],
-            sNumber = num.toString();
-        for (let i = 0, len = sNumber.length; i < len; i++) {
-            output.push(+sNumber.charAt(i))
-        }
-        const multiple = output.reduce((acc, rec) => acc * rec) ** 3
-        return  String(multiple).slice(0,2)
-    }
+let func1 = function() {
+    console.log('жирафу,');
+};
 
-    console.log(lesson02(266219))
+let func2 = function() {
+    func1();
 
-    const lesson03 = () => {
-        const lang = prompt('Введите либо "ru" либо "en"');
-        const days = new Map([
-            ['en', ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] ],
-            ['ru', ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'] ]
-        ])
-
-        if (lang === 'en') {
-            console.log(days.get('en'))
-        }   else if (lang === 'ru') {
-            console.log(days.get('ru'))
-        }   else {
-            console.log('ошибка')
-        }
-
-        switch(lang) {
-            case 'en':
-                console.log(days.get('en'))
-                break;
-
-            case 'ru':
-                console.log(days.get('ru'))
-                break;
-
-            default:
-                console.log('ошибка')
-        }
-
-        console.log(days.get('en'))
-
-        let namePerson = prompt('Введите имя')
-
-        namePerson === 'Артём' ?
-            console.log('директор') :
-            namePerson === 'Александр' ?
-                console.log('преподаватель') :
-                console.log('студент')
-    }
-
-    lesson03()
-
-    const lesson04 = (item) => {
-        if (typeof item !== "string") {
-            return 'передана не строка'
-        } else if (item.length > 30) {
-            item = item.trim()
-            return String(item).slice(0,30) + '...'
-        } else {
-            item = item.trim()
-            return item
-        }
-    }
-
-
-    console.log(lesson04(' 123321123321112332112332111233211233211 '))
+    setTimeout(function() {
+        console.log('сшил');
+    }, 1000);
 }
 
-hard()
+let func3 = function() {
+    setTimeout(function() {
+        func2();
+        console.log('зайке');
+    }, 250);
+    console.log('овце,');
+}
+
+setTimeout(function() {
+    console.log('голубые');
+    setTimeout(function() {
+        console.log('фуфайки');
+    }, 750);
+}, 500);
+
+console.log('Крот');
+
+func3();
