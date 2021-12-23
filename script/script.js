@@ -1,32 +1,24 @@
 'use strict'
 
-let func1 = function() {
-    console.log('жирафу,');
-};
+const sharingan = document.getElementById('image')
+const btn = document.getElementById('button')
+let count = 0
+let isFalse = false
 
-let func2 = function() {
-    func1();
 
-    setTimeout(function() {
-        console.log('сшил');
-    }, 1000);
+const animate = () => {
+    if (isFalse) {
+        sharingan.style.transform = `rotate(${count}deg)`
+        count++
+        requestAnimationFrame(animate)
+    }
 }
 
-let func3 = function() {
-    setTimeout(function() {
-        func2();
-        console.log('зайке');
-    }, 250);
-    console.log('овце,');
-}
-
-setTimeout(function() {
-    console.log('голубые');
-    setTimeout(function() {
-        console.log('фуфайки');
-    }, 750);
-}, 500);
-
-console.log('Крот');
-
-func3();
+btn.addEventListener('click', () => {
+    if (!isFalse) {
+        isFalse = true
+        requestAnimationFrame(animate)
+    } else {
+        isFalse = false
+    }
+})
