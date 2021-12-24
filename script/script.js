@@ -30,5 +30,6 @@ btnReset.addEventListener('click', () => {
     isFalse = false
     count = 0
     sharingan.style.transform = `rotate(${count}deg)`
+    btnStart.textContent = 'start'
 })
 
