@@ -5,7 +5,7 @@ const hard = () => {
     const task2 = document.getElementById('task2')
 
 
-    task1.innerHTML = task1.innerHTML.replace(/функц+/gi, (str) => {
+    task1.innerHTML = task1.innerHTML.replace(/функц\S*/gi, (str) => {
         return `<strong>${str}</strong>`
     })
 
