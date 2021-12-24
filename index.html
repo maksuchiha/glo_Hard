@@ -17,7 +17,10 @@
         align-items: center;
         flex-direction: column;
     }
-    #button {
+    .btn__wr {
+        display: flex;
+    }
+    .button {
         margin-top: 40px;
         padding: 10px 50px;
         font-size: 22px;
@@ -28,12 +31,18 @@
         outline: none;
         border-radius: 5px;
     }
+    .button:not(:last-of-type) {
+        margin-right: 15px;
+    }
 </style>
 
 <body>
 <div class="wrapper">
     <img id="image" src="213.png" alt="sharingan">
-    <button id="button">start</button>
+    <div class="btn__wr">
+        <button class="button" id="start">start</button>
+        <button class="button" id="reset">reset</button>
+    </div>
 </div>
 </body>
 </html>

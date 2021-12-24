@@ -1,7 +1,8 @@
 'use strict'
 
 const sharingan = document.getElementById('image')
-const btn = document.getElementById('button')
+const btnStart = document.getElementById('start')
+const btnReset = document.getElementById('reset')
 let count = 0
 let isFalse = false
 
@@ -14,7 +15,7 @@ const animate = () => {
     }
 }
 
-btn.addEventListener('click', () => {
+btnStart.addEventListener('click', () => {
     if (!isFalse) {
         isFalse = true
         requestAnimationFrame(animate)
@@ -22,3 +23,10 @@ btn.addEventListener('click', () => {
         isFalse = false
     }
 })
+
+btnReset.addEventListener('click', () => {
+    isFalse = false
+    count = 0
+    sharingan.style.transform = `rotate(${count}deg)`
+})
+
