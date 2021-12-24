@@ -19,8 +19,10 @@ btnStart.addEventListener('click', () => {
     if (!isFalse) {
         isFalse = true
         requestAnimationFrame(animate)
+        btnStart.textContent = 'pause'
     } else {
         isFalse = false
+        btnStart.textContent = 'start'
     }
 })
 
