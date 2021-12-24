@@ -1,74 +1,30 @@
 'use strict'
 
 const hard = () => {
-    const lesson02 = (item) => {
-        const num = item,
-            output = [],
-            sNumber = num.toString();
-        for (let i = 0, len = sNumber.length; i < len; i++) {
-            output.push(+sNumber.charAt(i))
-        }
-        const multiple = output.reduce((acc, rec) => acc * rec) ** 3
-        return  String(multiple).slice(0,2)
-    }
-
-    console.log(lesson02(266219))
-
-    const lesson03 = () => {
-        const lang = prompt('Введите либо "ru" либо "en"');
-        const days = new Map([
-            ['en', ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] ],
-            ['ru', ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'] ]
-        ])
-
-        if (lang === 'en') {
-            console.log(days.get('en'))
-        }   else if (lang === 'ru') {
-            console.log(days.get('ru'))
-        }   else {
-            console.log('ошибка')
-        }
-
-        switch(lang) {
-            case 'en':
-                console.log(days.get('en'))
-                break;
-
-            case 'ru':
-                console.log(days.get('ru'))
-                break;
-
-            default:
-                console.log('ошибка')
-        }
-
-        console.log(days.get('en'))
-
-        let namePerson = prompt('Введите имя')
-
-        namePerson === 'Артём' ?
-            console.log('директор') :
-            namePerson === 'Александр' ?
-                console.log('преподаватель') :
-                console.log('студент')
-    }
-
-    lesson03()
-
-    const lesson04 = (item) => {
-        if (typeof item !== "string") {
-            return 'передана не строка'
-        } else if (item.length > 30) {
-            item = item.trim()
-            return String(item).slice(0,30) + '...'
-        } else {
-            item = item.trim()
-            return item
-        }
-    }
+    const task1 = document.getElementById('task1')
+    const task2 = document.getElementById('task2')
 
 
-    console.log(lesson04(' 123321123321112332112332111233211233211 '))
+    task1.innerHTML = task1.innerHTML.replace(/функц+/gi, (str) => {
+        return `<strong>${str}</strong>`
+    })
+
+    task2.innerHTML = task2.innerHTML.replace(/[\d]+:[\d]+/gi, (str) => {
+        return `<b>${str}</b>`
+    })
+
+    document.body.innerHTML = document.body.innerHTML.replace(/("(?!")[^"]*")|<[^<>]+>/gi, (str) => {
+        return `<mark>${str}</mark>`
+    })
+
+    document.body.innerHTML = document.body.innerHTML.replace(/(http?:\/\/[^\s]+)/gi, (str) => {
+        return `<a href="' + url + '">${str}</a>`
+    })
+
+    document.body.innerHTML = document.body.innerHTML.replace(/#([A-F]{3}){1,2}/g, (str) => {
+        console.log(str)
+    })
+
 }
 
 hard()
