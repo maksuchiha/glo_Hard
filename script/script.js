@@ -1,27 +1,46 @@
 'use strict'
 
 const hard = () => {
+    const select = document.getElementById('cars')
+    const output = document.querySelector('.output')
+
 
     const getData = () => {
-        fetch('./data/db.json')
+        fetch('https://bfs01.getcourse.ru/public/files/12250/88/84120897322424565eb4cddeea2b910a.json?e=1641790799&s=_QUeCM_T1jQ_bpKjfjPHUw')
             .then(data => data.json())
-            .then(newData => sendData(newData))
+            .then(newData => render(newData))
             .catch(error => console.log(error))
     }
 
-    const sendData = (data) => {
-        const xhr = new XMLHttpRequest()
+    const out = (e, data) => {
+        const createTextItem = select.querySelectorAll('option')
 
-        const body = JSON.stringify(data)
+        createTextItem.forEach((item, textIndex) => {
+            if (+e.target.value === textIndex - 1) {
+                output.innerHTML = `тачка: ${data.cars[textIndex -1].brand} ${data.cars[textIndex -1].model}<br>
+                                      цена: ${data.cars[textIndex -1].price}
+                                    `
+            } else if (e.target.value === 'def') {
+                output.innerHTML = ``
+            }
+        })
+    }
 
-        xhr.open("POST", 'https://jsonplaceholder.typicode.com/posts')
-        xhr.setRequestHeader('Content-Type', 'application/json')
+    const render = (data) => {
+        data.cars.forEach((item, index) => {
+            const option = document.createElement('option')
 
-        xhr.send(body);
+            option.textContent = `${item.brand}`
+            option.value = `${index}`
+            select.append(option)
+        })
+
+        select.addEventListener('change', (e) => {
+            out(e, data)
+        })
     }
 
     getData()
-
 }
 
 hard()
