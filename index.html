@@ -6,9 +6,23 @@
     <script src="script/script.js" defer></script>
 </head>
 <body>
-<select aria-label="" name="cars" id="cars">
-    <option value="def" selected>Выбери тачку</option>
-</select>
-<div class="output"></div>
+<form style="" action="#" id="form">
+    <select aria-label="" name="select" id="select">
+        <option value="" selected>Выберите валюту</option>
+        <option value="usd">доллар</option>
+        <option value="eur">евро</option>
+    </select>
+    <div class="inputs" style="display: flex; margin-top: 20px">
+        <div style="margin-right: 50px;">
+            <input aria-label="" id="valute" type="text">
+            <label class="valuteInfo" for="valute"></label>
+        </div>
+        <div>
+            <input aria-label="" id="rub" type="text">
+            <label class="rubInfo" for="rub"></label>
+        </div>
+    </div>
+    <button style="margin-top: 20px">конвертировать</button>
+</form>
 </body>
 </html>
