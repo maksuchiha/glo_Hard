@@ -1,0 +1,64 @@
+@font-face {
+    font-family: 'Circe';
+    src: url('./../font/Circe/Circe-Regular.eot');
+    src: local('Circe'), local('Circe-Regular'),
+    url('./../font/Circe/Circe-Regular.eot?#iefix') format('embedded-opentype'),
+    url('./../font/Circe/Circe-Regular.woff') format('woff'),
+    url('./../font/Circe/Circe-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+*, *:after, *:before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Circe, sans-serif;
+}
+
+.avengers {
+    background: #1c1c1c;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: calc(33.333% - 30px);
+    margin: 15px;
+    padding: 20px;
+    border-radius: 15px;
+    background: url('../dbimage/bg.jpeg') center/cover no-repeat;
+    color: #e0ac56;
+}
+
+.card img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.card__text {
+    display: flex;
+    flex-direction: column;
+}
+
+.card__text span:not(:last-of-type) {
+    margin-bottom: 5px;
+}
+
+.card__films {
+    line-height: 25px;
+}
