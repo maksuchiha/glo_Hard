@@ -3,10 +3,10 @@
 const hard = () => {
     fetch('./data/dbHeroes.json')
         .then(data => data.json())
-        .then(newData => createElement(newData))
+        .then(newData => createElements(newData))
         .catch(err => console.log(err))
 
-    const createElement = (data) => {
+    const createElements = (data) => {
         data.forEach((item) => {
             const card = document.createElement('div')
             card.classList.add('card')
