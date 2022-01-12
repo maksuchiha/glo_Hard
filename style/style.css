@@ -1,11 +1,11 @@
 @font-face {
-    font-family: 'Circe';
-    src: url('./../font/Circe/Circe-Regular.eot');
-    src: local('Circe'), local('Circe-Regular'),
-    url('./../font/Circe/Circe-Regular.eot?#iefix') format('embedded-opentype'),
-    url('./../font/Circe/Circe-Regular.woff') format('woff'),
-    url('./../font/Circe/Circe-Regular.ttf') format('truetype');
-    font-weight: 400;
+    font-family: 'SF UI Display';
+    src: url('./../font/SanFrancisco/SFUIDisplay-Light.eot');
+    src: local('SF UI Display Light'), local('SFUIDisplay-Light'),
+    url('./../font/SanFrancisco/SFUIDisplay-Light.eot?#iefix') format('embedded-opentype'),
+    url('./../font/SanFrancisco/SFUIDisplay-Light.woff') format('woff'),
+    url('./../font/SanFrancisco/SFUIDisplay-Light.ttf') format('truetype');
+    font-weight: 300;
     font-style: normal;
 }
 
@@ -15,23 +15,85 @@
     box-sizing: border-box;
 }
 
+html {
+    min-height: 100%;
+}
+
 body {
-    font-family: Circe, sans-serif;
+    min-height: 100%;
+    font-family: SFU, sans-serif;
+    background: #1c1c1c;
 }
 
 .avengers {
+    min-height: 100%;
     background: #1c1c1c;
 }
 
 .container {
+    min-height: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 15px;
 }
 
+.avengers__inner {
+    display: flex;
+    min-height: 100%;
+}
+
+.nav {
+    position: relative;
+    width: 15%;
+    flex: 0 0 15%;
+    min-height: 100%;
+}
+
+.nav__name {
+    color: #e1c28f;
+    margin-bottom: 15px;
+}
+
+.nav-form {
+    position: fixed;
+    top: 50px;
+    display: flex;
+    flex-direction: column;
+    width: 12%;
+}
+
+.nav-form label {
+    color: #e1c28f;
+    margin-bottom: 8px;
+}
+
+.nav-form select {
+    margin-bottom: 10px;
+    text-align: center;
+    height: 30px;
+    border-radius: 15px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.nav-form__submit {
+    margin-top: 20px;
+    height: 30px;
+    cursor: pointer;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    background: #e1c28f;
+}
+
 .cards {
     display: flex;
     flex-wrap: wrap;
+    min-height: 100%;
+    max-width: 100%;
+    width: 100%;
+    color: #e1c28f;
 }
 
 .card {
@@ -40,12 +102,11 @@ body {
     padding: 20px;
     border-radius: 15px;
     background: url('../dbimage/bg.jpeg') center/cover no-repeat;
-    color: #e0ac56;
 }
 
 .card img {
     width: 100%;
-    height: 400px;
+    height: 330px;
     object-fit: cover;
     margin-bottom: 20px;
 }

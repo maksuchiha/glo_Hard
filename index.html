@@ -9,8 +9,32 @@
 <body>
 <div class="avengers">
     <div class="container">
-        <div class="cards">
+        <div class="avengers__inner">
+            <nav class="nav">
+                <form action="#" class="nav-form">
+                    <span class="nav__name">Фильтр персонажей</span>
+                    <label for="sex">Выберите пол:</label>
+                    <select name="sex" id="sex">
+                        <option value="" selected>------ Пол ------</option>
+                        <option value="male">мужской</option>
+                        <option value="female">женский</option>
+                    </select>
+                    <label for="film">Выберите фильм:</label>
+                    <select aria-label="" name="sex" id="film">
+                        <option value="" selected>------ Фильм ------</option>
+                    </select>
+                    <label for="status">Выберите статус:</label>
+                    <select aria-label="" name="status" id="status">
+                        <option value="" selected>------ Статус ------</option>
+                        <option value="alive">Жив(а)</option>
+                        <option value="deceased">Мёртв(а)</option>
+                    </select>
+                    <button class="nav-form__submit">Искать</button>
+                </form>
+            </nav>
+            <div class="cards">
 
+            </div>
         </div>
     </div>
 </div>
